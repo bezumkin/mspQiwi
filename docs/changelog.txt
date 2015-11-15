@@ -1,5 +1,11 @@
 Changelog for mspQiwi.
 
+1.2.0 pl
+==============
+- Добавлены новые настройки, чтобы работать с использованием API id и key.
+- В примечании к оплате можно использовать плейсхоледеры заказа.
+- Обновление кода и описаний к системным настройкам.
+
 1.1.0 pl
 ==============
 - Deleted payment status from config.Use defaults MS2 status (2,4) for success/cancel payment.

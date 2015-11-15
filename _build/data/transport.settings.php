@@ -4,67 +4,83 @@ $settings = array();
 
 
 $tmp = array(
-    'url' => array(
-        'xtype' => 'textfield',
-        'value' => 'https://w.qiwi.com/order/external/create.action',
-    ),
+	/*
+	'mode' => array(
+		'xtype' => 'textfield',
+		'value' => 'SOAP',
+	),
+	*/
+	'url' => array(
+		'xtype' => 'textfield',
+		'value' => 'https://w.qiwi.com/order/external/create.action',
+	),
 
-    'shopId' => array(
-        'xtype' => 'textfield',
-        'value' => '',
-    ),
+	'shopId' => array(
+		'xtype' => 'textfield',
+		'value' => '',
+	),
+	'apiId' => array(
+		'xtype' => 'textfield',
+		'value' => '',
+	),
+	'apiKey' => array(
+		'xtype' => 'text-password',
+		'value' => '',
+	),
+	/*
+	'restKey' => array(
+		'xtype' => 'text-password',
+		'value' => '',
+	),
+	*/
+	/*
+	'shopKey' => array(
+		'xtype' => 'text-password',
+		'value' => '',
+	),
+	*/
+	'currency' => array(
+		'xtype' => 'textfield',
+		'value' => 'RUB',
+	),
+	'lifetime' => array(
+		'xtype' => 'textfield',
+		'value' => 24,
+	),
+	/*
+	'check_agt' => array(
+		'xtype' => 'combo-boolean',
+		'value' => false,
+	),
+	*/
+	'comment' => array(
+		'xtype' => 'textfield',
+		'value' => 'Оплата заказа [[+num]]',
+	),
 
-    'shopKey' => array(
-        'xtype' => 'text-password',
-        'value' => '',
-    ),
-
-    'lifetime' => array(
-        'xtype' => 'textfield',
-        'value' => '24',
-    ),
-
-    'check_agt' => array(
-        'xtype' => 'combo-boolean',
-        'value' => 'false',
-    ),
-
-
-    'comment' => array(
-        'xtype' => 'textfield',
-        'value' => 'Оплата заказа',
-    ),
-
-    'successId' => array(
-        'xtype' => 'numberfield',
-        'value' => '',
-    ),
-
-    'failureId' => array(
-        'xtype' => 'numberfield',
-        'value' => '',
-    ),
-
-    'currency' => array(
-        'xtype' => 'numberfield',
-        'value' => '643',
-    ),
-
+	'successId' => array(
+		'xtype' => 'numberfield',
+		'value' => '',
+	),
+	'failureId' => array(
+		'xtype' => 'numberfield',
+		'value' => '',
+	),
 
 );
 
 foreach ($tmp as $k => $v) {
-    /* @var modSystemSetting $setting */
-    $setting = $modx->newObject('modSystemSetting');
-    $setting->fromArray(array_merge(
-        array(
-            'key' => 'ms2_mspqiwi_'.$k,
-            'namespace' => 'minishop2',
-            'area' => 'ms2_payment',
-        ), $v
-    ), '', true, true);
+	/* @var modSystemSetting $setting */
+	$setting = $modx->newObject('modSystemSetting');
+	$setting->fromArray(array_merge(
+		array(
+			'key' => 'ms2_mspqiwi_' . $k,
+			'namespace' => 'minishop2',
+			'area' => 'ms2_payment',
+		), $v
+	), '', true, true);
 
-    $settings[] = $setting;
+	$settings[] = $setting;
 }
 
 unset($tmp);
